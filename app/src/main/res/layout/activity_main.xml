@@ -10,13 +10,12 @@
         android:id="@+id/Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="O`ZAGROLIZING"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/Inn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="@+id/Inn"
+        app:layout_constraintStart_toStartOf="@+id/Inn" />
 
     <EditText
         android:id="@+id/Inn"
@@ -39,11 +38,10 @@
         android:id="@+id/Find"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Поиск"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Inn"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintEnd_toEndOf="@+id/Inn"
+        app:layout_constraintStart_toStartOf="@+id/Inn"
+        app:layout_constraintTop_toBottomOf="@+id/Inn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
