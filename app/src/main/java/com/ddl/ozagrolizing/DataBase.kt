@@ -13,8 +13,8 @@ abstract class DataBase : RoomDatabase() {
             return Room.databaseBuilder(
                 context.applicationContext,
                 DataBase::class.java,
-                "OzagrolizingQRF.db"
-                ).build()
+                "OzagrolizingQRF.db").createFromAsset("database/test.db")
+                .build()
         }
     }
 }
