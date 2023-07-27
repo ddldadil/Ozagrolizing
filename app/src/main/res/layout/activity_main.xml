@@ -5,49 +5,98 @@
     android:id="@+id/CL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_neutral10"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/Name"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/material_dynamic_neutral70"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/Inn"
-        app:layout_constraintEnd_toEndOf="@+id/Inn"
-        app:layout_constraintStart_toStartOf="@+id/Inn" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:theme="@style/Theme.Ozagrolizing"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/Inn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/material_dynamic_neutral10"
-        android:hint="Введите ИНН"
-        android:inputType="number"
-        android:maxLength="9"
-        android:minHeight="48dp"
-        android:textAlignment="center"
-        android:textColor="@color/material_dynamic_neutral70"
-        android:textColorHint="@color/material_dynamic_neutral30"
-        android:textSize="24sp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Region"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/abel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/District"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/abel"
+                app:layout_constraintEnd_toEndOf="@+id/Region"
+                app:layout_constraintTop_toBottomOf="@+id/Region" />
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/abel"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/District"
+                app:layout_constraintTop_toBottomOf="@+id/District" />
+
+            <EditText
+                android:id="@+id/Inn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:autofillHints=""
+                android:hint="Введите ИНН"
+                android:inputType="number"
+                android:maxLength="9"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+            <Button
+                android:id="@+id/Find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Поиск"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Inn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <Button
-        android:id="@+id/Find"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:text="Поиск"
-        android:textColor="@color/material_dynamic_neutral10"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/Inn"
-        app:layout_constraintStart_toStartOf="@+id/Inn"
-        app:layout_constraintTop_toBottomOf="@+id/Inn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

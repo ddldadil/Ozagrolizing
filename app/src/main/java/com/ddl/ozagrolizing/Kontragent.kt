@@ -9,4 +9,8 @@ data class Kontragent (
     @PrimaryKey(autoGenerate = true)
     var inn: Int? = null,
     @ColumnInfo(name = "name")
-    var name: String,)
+    var name: String,
+    @ColumnInfo(name = "region")
+    var region: String,
+    @ColumnInfo(name = "district")
+    var district: String)

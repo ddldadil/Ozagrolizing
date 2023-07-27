@@ -2,15 +2,16 @@ package com.ddl.ozagrolizing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddl.ozagrolizing.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var vm: MainViewModel
+    private lateinit var adapter: ContractAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -20,12 +21,18 @@ class MainActivity : AppCompatActivity() {
             .get(MainViewModel::class.java)
 
         vm.resultLive.observe(this) { text ->
-            binding.Name.text = text
+            binding.Name.text = text[0].name
+            binding.Region.text = text[0].region
+            binding.District.text = text[0].district
+            binding.rcView.layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = ContractAdapter()
+            binding.rcView.adapter = adapter
+            adapter.submitList(text)
         }
 
         binding.Find.setOnClickListener {
             lifecycleScope.launch{
-                vm.getKontragent(binding.Inn.text.toString())
+                vm.getDataContract(binding.Inn.text.toString())
             }
         }
     }
