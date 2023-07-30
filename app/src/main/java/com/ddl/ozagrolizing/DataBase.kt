@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database (entities = [Kontragent::class, Contract::class, Nomenclature::class], version = 2)
+@Database (entities = [Kontragent::class, Contract::class, Nomenclature::class, Schedule::class], version = 1)
 abstract class DataBase : RoomDatabase() {
     abstract fun getDao(): Dao
     companion object {

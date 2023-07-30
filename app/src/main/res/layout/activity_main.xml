@@ -60,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="38dp"
                 android:autofillHints=""
                 android:hint="Введите ИНН"
                 android:inputType="number"
@@ -71,18 +72,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Name" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/Find"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Поиск"
+                android:background="@android:drawable/ic_menu_search"
+                android:contentDescription="@string/fab_transformation_scrim_behavior"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Inn" />
+                app:layout_constraintBottom_toBottomOf="@+id/Inn"
+                app:layout_constraintStart_toEndOf="@+id/Inn"
+                app:layout_constraintTop_toTopOf="@+id/Inn"
+                tools:ignore="ImageContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -10,5 +10,6 @@ data class DataContract(
     val price: String,
     val margin: String,
     val term: String,
-    val prepayment: String
+    val prepayment: String,
+    val totalCost: String
 )

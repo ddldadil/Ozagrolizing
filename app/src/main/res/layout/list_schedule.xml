@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lineNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/scheduleDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="31.01.2011"
+            app:layout_constraintStart_toEndOf="@+id/lineNumber"
+            app:layout_constraintTop_toTopOf="@+id/lineNumber" />
+
+        <TextView
+            android:id="@+id/remainder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="15 863 805.00"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/scheduleDate"
+            app:layout_constraintStart_toEndOf="@+id/scheduleDate"
+            app:layout_constraintTop_toTopOf="@+id/scheduleDate" />
+
+        <TextView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="31"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/remainder"
+            app:layout_constraintTop_toTopOf="@+id/remainder" />
+
+        <TextView
+            android:id="@+id/mainDebt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="178 245.00"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/days"
+            app:layout_constraintTop_toTopOf="@+id/days" />
+
+        <TextView
+            android:id="@+id/marginSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="92 538.86"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@+id/mainDebt"
+            app:layout_constraintTop_toTopOf="@+id/mainDebt" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="270 783.86"
+            app:layout_constraintBottom_toBottomOf="@+id/marginSchedule"
+            app:layout_constraintStart_toEndOf="@+id/marginSchedule"
+            app:layout_constraintTop_toTopOf="@+id/marginSchedule" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

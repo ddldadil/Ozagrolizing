@@ -7,18 +7,26 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ddl.ozagrolizing.databinding.ListContractBinding
+import java.text.NumberFormat
+import java.util.Locale
+
+
+
 
 class ContractAdapter : ListAdapter<DataContract, ContractAdapter.Holder>(Comparator()) {
     class Holder(view: View) : RecyclerView.ViewHolder(view){
         val binding = ListContractBinding.bind(view)
+        var nf = NumberFormat.getInstance(Locale.FRENCH)
         fun bind(item: DataContract) = with(binding){
-            number.text = item.number
-            date.text = item.date
+            nf.minimumFractionDigits = 2
+            number.text = "№ ${item.number} "
+            date.text = "от ${item.date}"
             nomenclature.text = item.nomenclature
-            price.text = item.price
-            margin.text = item.margin
-            term.text = item.term
-            prepayment.text = item.prepayment
+            price.text = "Цена: ${nf.format(item.price.replace(",",".").toDouble())}"
+            margin.text = "Маржа: ${item.margin}%"
+            term.text = "Срок в (мес): ${item.term}"
+            prepayment.text = "Аванс: ${item.prepayment}%"
+            totalCost.text = "Общая лизинговая стоимость: ${nf.format(item.totalCost.replace(",",".").toDouble())}"
         }
     }
     class Comparator : DiffUtil.ItemCallback<DataContract>(){

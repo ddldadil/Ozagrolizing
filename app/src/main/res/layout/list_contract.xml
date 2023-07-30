@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
-            android:text="№ 23/01-04-236 "
+            android:fontFamily="sans-serif-medium"
+            android:text="23/01-04-236"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
-            android:text=" от  23/05/2023"
+            android:fontFamily="sans-serif-medium"
+            android:text="23/05/2023"
             app:layout_constraintStart_toEndOf="@+id/number"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,16 +37,17 @@
             android:id="@+id/nomenclature"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center_vertical"
             android:text="Трактор New Holland TD-5-110"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/totalCost"
             app:layout_constraintEnd_toStartOf="@+id/term"
-            app:layout_constraintStart_toStartOf="@+id/number"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/number" />
 
         <TextView
@@ -55,8 +56,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-light"
             android:text="Цена: 200 000 000.00"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,9 +66,10 @@
             android:id="@+id/margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-light"
             android:text="Маржа: 27 %"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/price"
             app:layout_constraintTop_toBottomOf="@+id/price" />
 
@@ -74,9 +77,10 @@
             android:id="@+id/term"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-light"
             android:text="Срок в (мес): 60"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/margin"
             app:layout_constraintTop_toBottomOf="@+id/margin" />
 
@@ -84,12 +88,26 @@
             android:id="@+id/prepayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-light"
             android:text="Аванс: 25 %"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/term"
             app:layout_constraintTop_toBottomOf="@+id/term" />
+
+        <TextView
+            android:id="@+id/totalCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Общая лизинговая стоимость: 1 985 650 120,32"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prepayment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
