@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ozal</string>
+    <string name="enter_INN">Введите ИНН</string>
+    <string name="contractNumber">Договор №</string>
+    <string name="message_no_data">Данные отсутствуют</string>
+    <string name="error_inn">Значение не дожно быть пустым или меньше 9 символов</string>
+
+</resources>

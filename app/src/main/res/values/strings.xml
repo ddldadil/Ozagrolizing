@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Ozagrolizing</string>
+    <string name="app_name">Ozal</string>
+    <string name="enter_INN">Enter INN</string>
+    <string name="contractNumber">Contract N</string>
+    <string name="message_no_data">No data</string>
+    <string name="designed_by" translatable="false">Designed by DDLSOFTWARE</string>
+    <string name="error_inn">Value must not be empty or less than 9 characters</string>
+
 </resources>

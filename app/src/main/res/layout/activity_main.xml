@@ -5,6 +5,7 @@
     android:id="@+id/CL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <com.google.android.material.card.MaterialCardView
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/abel"
+                android:fontFamily="sans-serif"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/abel"
+                android:fontFamily="sans-serif"
                 app:layout_constraintEnd_toEndOf="@+id/Region"
                 app:layout_constraintTop_toBottomOf="@+id/Region" />
 
@@ -50,41 +51,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/abel"
+                android:fontFamily="sans-serif"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/District"
                 app:layout_constraintTop_toBottomOf="@+id/District" />
 
-            <EditText
-                android:id="@+id/Inn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="38dp"
-                android:autofillHints=""
-                android:hint="Введите ИНН"
-                android:inputType="number"
-                android:maxLength="9"
-                android:minHeight="48dp"
-                android:textAlignment="center"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Name" />
-
-            <ImageButton
-                android:id="@+id/Find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/ic_menu_search"
-                android:contentDescription="@string/fab_transformation_scrim_behavior"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/Inn"
-                app:layout_constraintStart_toEndOf="@+id/Inn"
-                app:layout_constraintTop_toTopOf="@+id/Inn"
-                tools:ignore="ImageContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -99,6 +70,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_no_data"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

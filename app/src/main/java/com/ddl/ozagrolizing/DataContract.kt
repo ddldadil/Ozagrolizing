@@ -1,6 +1,7 @@
 package com.ddl.ozagrolizing
 
 data class DataContract(
+    val id: Int,
     val region: String,
     val district: String,
     val name: String,

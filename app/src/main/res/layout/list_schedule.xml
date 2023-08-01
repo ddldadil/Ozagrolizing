@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/lineNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -26,31 +26,33 @@
             android:id="@+id/scheduleDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
             android:text="31.01.2011"
             app:layout_constraintStart_toEndOf="@+id/lineNumber"
-            app:layout_constraintTop_toTopOf="@+id/lineNumber" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/remainder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
             android:text="15 863 805.00"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/scheduleDate"
-            app:layout_constraintStart_toEndOf="@+id/scheduleDate"
-            app:layout_constraintTop_toTopOf="@+id/scheduleDate" />
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/lineNumber"
+            app:layout_constraintTop_toBottomOf="@+id/scheduleDate" />
 
         <TextView
             android:id="@+id/days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:text="31"
-            android:textSize="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/remainder"
             app:layout_constraintStart_toEndOf="@+id/remainder"
-            app:layout_constraintTop_toTopOf="@+id/remainder" />
+            app:layout_constraintTop_toTopOf="@+id/scheduleDate" />
 
         <TextView
             android:id="@+id/mainDebt"
@@ -58,7 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="178 245.00"
-            android:textSize="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/days"
             app:layout_constraintStart_toEndOf="@+id/days"
             app:layout_constraintTop_toTopOf="@+id/days" />
 
@@ -68,7 +71,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="92 538.86"
-            android:textSize="10sp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainDebt"
             app:layout_constraintStart_toEndOf="@+id/mainDebt"
             app:layout_constraintTop_toTopOf="@+id/mainDebt" />
 
@@ -76,10 +80,11 @@
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:text="270 783.86"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/marginSchedule"
-            app:layout_constraintStart_toEndOf="@+id/marginSchedule"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/marginSchedule" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
