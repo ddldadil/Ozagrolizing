@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginFind.setOnClickListener{
 
             val i = Intent(this, MainActivity::class.java)
-            val inn = binding.loginInn.text.toString()
+            val inn = binding.inn.text.toString()
             if (!isEmpty()){
                 i.putExtra("inn", inn)
                 startActivity(i)
@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun isEmpty():Boolean{
-        if (binding.loginInn.text.length<9) binding.loginInn.error = getString(R.string.error_inn)
-        return binding.loginInn.text.length<9
+        if (binding.inn.text.toString().length<9) binding.inn.error = getString(R.string.error_inn)
+        return binding.inn.text.toString().length<9
     }
 }

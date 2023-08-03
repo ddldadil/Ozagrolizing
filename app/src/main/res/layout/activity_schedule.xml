@@ -6,21 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".ScheduleActivity">
 
-    <TextView
-        android:id="@+id/SContractNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/HeaderNumber"
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            android:gravity="center|center_vertical"
+            android:text="@string/HeaderNumber"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/HeaderDate"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/HeaderDate"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/HeaderRemainder"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/HeaderRemainder"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/HeaderDays"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/HeaderDays"
+            android:textSize="10sp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/HeaderMainDebt"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/HeaderMainDebt"
+            android:textSize="10sp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/HeaderMargin"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/HeaderMargin"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/HeaderTotal"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/HeaderTotal"
+            android:textSize="10sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcViewSchedule"
@@ -29,5 +93,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

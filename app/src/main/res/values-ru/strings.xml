@@ -3,6 +3,14 @@
     <string name="enter_INN">Введите ИНН</string>
     <string name="contractNumber">Договор №</string>
     <string name="message_no_data">Данные отсутствуют</string>
-    <string name="error_inn">Значение не дожно быть пустым или меньше 9 символов</string>
+    <string name="error_inn">Неверное значение</string>
+    <string name="Find">Поиск</string>
+    <string name="HeaderNumber">№</string>
+    <string name="HeaderDate">Дата</string>
+    <string name="HeaderRemainder">Остаток</string>
+    <string name="HeaderDays">Дни</string>
+    <string name="HeaderMainDebt">Основной долг</string>
+    <string name="HeaderMargin">Маржа</string>
+    <string name="HeaderTotal">Всего</string>
 
 </resources>

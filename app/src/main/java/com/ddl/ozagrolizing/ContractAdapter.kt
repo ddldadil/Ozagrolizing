@@ -28,6 +28,7 @@ class ContractAdapter(val listener: Listener) : ListAdapter<DataContract, Contra
             if (item.totalCost.trim().isNotEmpty()) {
                 totalCost.text = "Общая лизинговая стоимость: ${nf.format(item.totalCost.replace(",",".").toDouble())}"
             }
+
             itemView.setOnClickListener{
                 listener.onClick(item)
             }

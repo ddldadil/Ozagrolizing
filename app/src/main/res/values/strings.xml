@@ -4,6 +4,14 @@
     <string name="contractNumber">Contract N</string>
     <string name="message_no_data">No data</string>
     <string name="designed_by" translatable="false">Designed by DDLSOFTWARE</string>
-    <string name="error_inn">Value must not be empty or less than 9 characters</string>
+    <string name="error_inn">Incorrect value</string>
+    <string name="Find">Find</string>
+    <string name="HeaderNumber">№</string>
+    <string name="HeaderDate">Date</string>
+    <string name="HeaderRemainder">Remainder</string>
+    <string name="HeaderDays">Days</string>
+    <string name="HeaderMainDebt">Main debt</string>
+    <string name="HeaderMargin">Margin</string>
+    <string name="HeaderTotal">Total</string>
 
 </resources>

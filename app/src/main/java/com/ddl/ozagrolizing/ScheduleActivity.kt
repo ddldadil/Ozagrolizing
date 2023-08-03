@@ -2,7 +2,6 @@ package com.ddl.ozagrolizing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +27,6 @@ class ScheduleActivity : AppCompatActivity() {
             adapter.submitList(shc)
         }
         val item = intent.getStringExtra("item")
-        binding.SContractNumber.text = item
         lifecycleScope.launch{
             vm.getSchedule(item.toString())
         }
