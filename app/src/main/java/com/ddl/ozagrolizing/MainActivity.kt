@@ -1,8 +1,11 @@
 package com.ddl.ozagrolizing
 
+import android.app.DownloadManager
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -21,9 +24,9 @@ class MainActivity : AppCompatActivity(), ContractAdapter.Listener {
 
         vm = ViewModelProvider(this, MainViewModelFactory(this))
             .get(MainViewModel::class.java)
-
         vm.resultLive.observe(this) { text ->
             binding.message.visibility = TextView.GONE
+            binding.imNoData.visibility = ImageView.GONE
             binding.Name.text = text[0].name
             binding.Region.text = text[0].region
             binding.District.text = text[0].district

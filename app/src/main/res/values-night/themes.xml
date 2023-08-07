@@ -34,4 +34,7 @@
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
     </style>
+    <style name="MyCard" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@color/md_theme_dark_surfaceVariant</item>
+    </style>
 </resources>

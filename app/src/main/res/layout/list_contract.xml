@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:clickable="true"
-    app:cardCornerRadius="10dp"
+    android:layout_marginTop="12dp"
+    android:clickable="false"
+    app:cardCornerRadius="18dp"
     app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +22,19 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="№ 23/01-04-253D" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toStartOf="@+id/margin"
+            app:layout_constraintStart_toStartOf="@+id/number"
+            app:layout_constraintTop_toBottomOf="@+id/number"
+            tools:text="Переоформление от: 'Golden House' fermer xojaligi" />
 
         <TextView
             android:id="@+id/date"
@@ -29,23 +43,23 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintStart_toEndOf="@+id/number"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text=" от 02.05.2023" />
 
         <TextView
             android:id="@+id/nomenclature"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="80dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center_vertical"
+            android:minHeight="48sp"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@+id/totalCost"
-            app:layout_constraintEnd_toStartOf="@+id/term"
+            app:layout_constraintEnd_toStartOf="@+id/issue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/number" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:text="Зерноуборочный комбайн Dominator-130 AGROCLASS " />
 
         <TextView
             android:id="@+id/price"
@@ -56,50 +70,63 @@
             android:fontFamily="sans-serif-light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Цена: 500 200 600 300.25" />
 
         <TextView
             android:id="@+id/margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/price"
-            app:layout_constraintTop_toBottomOf="@+id/price" />
+            app:layout_constraintTop_toBottomOf="@+id/price"
+            tools:text="Маржа: 27%" />
 
         <TextView
             android:id="@+id/term"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/margin"
-            app:layout_constraintTop_toBottomOf="@+id/margin" />
+            app:layout_constraintTop_toBottomOf="@+id/margin"
+            tools:text="Срок в (мес): 120" />
 
         <TextView
             android:id="@+id/prepayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-light"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/term"
-            app:layout_constraintTop_toBottomOf="@+id/term" />
+            app:layout_constraintTop_toBottomOf="@+id/term"
+            tools:text="Аванс: 30%" />
+
+        <TextView
+            android:id="@+id/issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/prepayment"
+            app:layout_constraintTop_toBottomOf="@+id/prepayment"
+            tools:text="Выданно: 12.06.2023" />
 
         <TextView
             android:id="@+id/totalCost"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-medium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/prepayment" />
+            app:layout_constraintEnd_toEndOf="@+id/prepayment"
+            app:layout_constraintStart_toStartOf="@+id/nomenclature"
+            app:layout_constraintTop_toBottomOf="@+id/nomenclature"
+            tools:text="Общая лизинговая стоимость: 600 400 200 600.50" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
