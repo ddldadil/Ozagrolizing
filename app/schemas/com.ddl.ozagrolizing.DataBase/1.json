@@ -1,0 +1,323 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "322978cea6fb58be56fedf779ffcef55",
+    "entities": [
+      {
+        "tableName": "kontragent",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`inn` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `region` TEXT NOT NULL, `district` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "inn",
+            "columnName": "inn",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "region",
+            "columnName": "region",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "district",
+            "columnName": "district",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "inn"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "contract",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `number` TEXT NOT NULL, `date` TEXT NOT NULL, `kontragent_inn` INTEGER NOT NULL, `nomenclature_id` INTEGER NOT NULL, `price` TEXT NOT NULL, `margin` TEXT NOT NULL, `term` TEXT NOT NULL, `prepayment` TEXT NOT NULL, `dateOfIssue` TEXT NOT NULL, `accrualScheme` TEXT NOT NULL, `reissued` TEXT NOT NULL, `totalCost` TEXT NOT NULL, FOREIGN KEY(`kontragent_inn`) REFERENCES `kontragent`(`inn`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`nomenclature_id`) REFERENCES `nomenclature`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "number",
+            "columnName": "number",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kontragentInn",
+            "columnName": "kontragent_inn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomenclatureId",
+            "columnName": "nomenclature_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "margin",
+            "columnName": "margin",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "term",
+            "columnName": "term",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prepayment",
+            "columnName": "prepayment",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateOfIssue",
+            "columnName": "dateOfIssue",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accrualScheme",
+            "columnName": "accrualScheme",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reissued",
+            "columnName": "reissued",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCost",
+            "columnName": "totalCost",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_contract_id",
+            "unique": false,
+            "columnNames": [
+              "id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contract_id` ON `${TABLE_NAME}` (`id`)"
+          },
+          {
+            "name": "index_contract_kontragent_inn",
+            "unique": false,
+            "columnNames": [
+              "kontragent_inn"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contract_kontragent_inn` ON `${TABLE_NAME}` (`kontragent_inn`)"
+          },
+          {
+            "name": "index_contract_nomenclature_id",
+            "unique": false,
+            "columnNames": [
+              "nomenclature_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_contract_nomenclature_id` ON `${TABLE_NAME}` (`nomenclature_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "kontragent",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "kontragent_inn"
+            ],
+            "referencedColumns": [
+              "inn"
+            ]
+          },
+          {
+            "table": "nomenclature",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "nomenclature_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "nomenclature",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "schedule",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `contract_id` INTEGER NOT NULL, `lineNumber` INTEGER NOT NULL, `scheduleDate` TEXT NOT NULL, `remainder` TEXT NOT NULL, `days` TEXT NOT NULL, `mainDebt` TEXT NOT NULL, `margin` TEXT NOT NULL, `total` TEXT NOT NULL, `accrualFlag` TEXT NOT NULL, `paymentFlag` TEXT NOT NULL, FOREIGN KEY(`contract_id`) REFERENCES `contract`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contractId",
+            "columnName": "contract_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lineNumber",
+            "columnName": "lineNumber",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scheduleDate",
+            "columnName": "scheduleDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "remainder",
+            "columnName": "remainder",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "days",
+            "columnName": "days",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mainDebt",
+            "columnName": "mainDebt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "margin",
+            "columnName": "margin",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "total",
+            "columnName": "total",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accrualFlag",
+            "columnName": "accrualFlag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentFlag",
+            "columnName": "paymentFlag",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_schedule_contract_id",
+            "unique": false,
+            "columnNames": [
+              "contract_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_schedule_contract_id` ON `${TABLE_NAME}` (`contract_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "contract",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "contract_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '322978cea6fb58be56fedf779ffcef55')"
+    ]
+  }
+}

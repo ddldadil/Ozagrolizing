@@ -37,6 +37,16 @@
             tools:text="Переоформление от: 'Golden House' fermer xojaligi" />
 
         <TextView
+            android:id="@+id/N"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="999"
+            app:layout_constraintBottom_toBottomOf="@+id/nomenclature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nomenclature" />
+
+        <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +67,7 @@
             android:minHeight="48sp"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/issue"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/N"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             tools:text="Зерноуборочный комбайн Dominator-130 AGROCLASS " />
 
@@ -125,7 +135,7 @@
             android:fontFamily="sans-serif-medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/prepayment"
-            app:layout_constraintStart_toStartOf="@+id/nomenclature"
+            app:layout_constraintStart_toStartOf="@+id/N"
             app:layout_constraintTop_toBottomOf="@+id/nomenclature"
             tools:text="Общая лизинговая стоимость: 600 400 200 600.50" />
     </androidx.constraintlayout.widget.ConstraintLayout>
