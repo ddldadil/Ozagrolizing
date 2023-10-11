@@ -18,6 +18,7 @@ class ContractAdapter(val listener: Listener) : ListAdapter<DataContract, Contra
             nf.minimumFractionDigits = 2
             number.text = "№ ${item.number} "
             date.text = "от ${item.date}"
+            N.text = (adapterPosition+1).toString()
             nomenclature.text = item.nomenclature
             if (item.price.trim().isNotEmpty()){
                 price.text = "Цена: ${nf.format(item.price.replace(",",".").toDouble())}"
