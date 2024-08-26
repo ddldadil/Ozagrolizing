@@ -1,5 +1,6 @@
 package com.ddl.ozagrolizing
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,13 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Загружаем сохраненный логин, если он существует
+        val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val savedInn = sharedPref.getString("inn", "")
+        if (!savedInn.isNullOrEmpty()) {
+            binding.inn.setText(savedInn)
+        }
+
         binding.loginFind.setOnClickListener{
 
             val i = Intent(this, MainActivity::class.java)
@@ -20,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
             if (!isEmpty()){
                 i.putExtra("inn", inn)
                 startActivity(i)
+                with(sharedPref.edit()) {
+                    putString("inn", inn)
+                    apply()}
             }
 
 

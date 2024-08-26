@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ozal</string>
+    <string name="app_name">Agrolizing</string>
     <string name="enter_INN">Введите ИНН</string>
     <string name="contractNumber">Договор №</string>
     <string name="message_no_data">Данные отсутствуют</string>
