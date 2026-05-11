@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModelProvider
 
 class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
 
-    val db = DataBase.getDataBase(context)
+    private val db = DataBase.getDataBase(context)
 
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MainViewModel(db=db) as T
+        return MainViewModel(db = db) as T
     }
 }

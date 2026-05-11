@@ -3,32 +3,36 @@ package com.ddl.ozagrolizing
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddl.ozagrolizing.databinding.ActivityScheduleBinding
-import kotlinx.coroutines.launch
 
 class ScheduleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScheduleBinding
     private lateinit var vm: MainViewModel
-    private lateinit var adapter: ScheduleAdapter
+    private val adapter = ScheduleAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScheduleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        vm = ViewModelProvider(this, MainViewModelFactory(this))
-            .get(MainViewModel::class.java)
+        binding.rcViewSchedule.setHasFixedSize(true)
+        binding.rcViewSchedule.layoutManager = LinearLayoutManager(this)
+        binding.rcViewSchedule.adapter = adapter
 
-        vm.resultLiveSch.observe(this) {shc ->
-            binding.rcViewSchedule.layoutManager = LinearLayoutManager(this@ScheduleActivity)
-            adapter = ScheduleAdapter()
-            binding.rcViewSchedule.adapter = adapter
-            adapter.submitList(shc)
+        vm = ViewModelProvider(this, MainViewModelFactory(this))[MainViewModel::class.java]
+
+        vm.resultLiveSch.observe(this) { schedules ->
+            adapter.submitList(schedules)
         }
-        val item = intent.getStringExtra("item")
-        lifecycleScope.launch{
-            vm.getSchedule(item.toString())
+
+        val item = intent.getStringExtra(EXTRA_CONTRACT_ID).orEmpty()
+        if (item.isNotEmpty()) {
+            vm.loadSchedule(item)
         }
+    }
+
+    companion object {
+        const val EXTRA_CONTRACT_ID = "item"
     }
 }

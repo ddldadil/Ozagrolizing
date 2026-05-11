@@ -9,30 +9,41 @@ import com.ddl.ozagrolizing.databinding.ListScheduleBinding
 import java.text.NumberFormat
 import java.util.Locale
 
-class ScheduleAdapter: androidx.recyclerview.widget.ListAdapter<Schedule, ScheduleAdapter.Holder>(Comparator()) {
-    class Holder(view: View) : RecyclerView.ViewHolder(view) {
-        val binding = ListScheduleBinding.bind(view)
-        var nf = NumberFormat.getInstance(Locale.FRENCH)
-        fun bind(item: Schedule) = with(binding){
-            nf.minimumFractionDigits = 2
-            lineNumber.text = item.lineNumber.toString()
-            scheduleDate.text = item.scheduleDate
-            remainder.text = nf.format(item.remainder.replace(",",".").toDouble())
-            days.text = item.days
-            mainDebt.text = nf.format(item.mainDebt.replace(",",".").toDouble())
-            marginSchedule.text = nf.format(item.margin.replace(",",".").toDouble())
-            total.text = nf.format(item.total.replace(",",".").toDouble())
+class ScheduleAdapter : androidx.recyclerview.widget.ListAdapter<Schedule, ScheduleAdapter.Holder>(Comparator()) {
+
+    companion object {
+        private val numberFormatter = NumberFormat.getInstance(Locale.FRENCH).apply {
+            minimumFractionDigits = 2
+        }
+
+        private fun safeFormat(value: String): String = try {
+            numberFormatter.format(value.replace(",", ".").toDouble())
+        } catch (e: NumberFormatException) {
+            value
         }
     }
-    class Comparator : DiffUtil.ItemCallback<Schedule>(){
+
+    class Holder(view: View) : RecyclerView.ViewHolder(view) {
+        private val binding = ListScheduleBinding.bind(view)
+        fun bind(item: Schedule) = with(binding) {
+            lineNumber.text = item.lineNumber.toString()
+            scheduleDate.text = item.scheduleDate
+            remainder.text = safeFormat(item.remainder)
+            days.text = item.days
+            mainDebt.text = safeFormat(item.mainDebt)
+            marginSchedule.text = safeFormat(item.margin)
+            total.text = safeFormat(item.total)
+        }
+    }
+
+    class Comparator : DiffUtil.ItemCallback<Schedule>() {
         override fun areItemsTheSame(oldItem: Schedule, newItem: Schedule): Boolean {
-            return oldItem == newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Schedule, newItem: Schedule): Boolean {
             return oldItem == newItem
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -43,6 +54,4 @@ class ScheduleAdapter: androidx.recyclerview.widget.ListAdapter<Schedule, Schedu
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(getItem(position))
     }
-
-
 }

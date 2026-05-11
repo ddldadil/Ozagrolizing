@@ -10,6 +10,7 @@
         android:id="@+id/imLogo"
         android:layout_width="70dp"
         android:layout_height="100dp"
+        android:contentDescription="@string/login_logo_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_font_family"
             android:gravity="center"
             android:inputType="number"
             android:maxLength="9"
@@ -42,22 +44,33 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:contentDescription="@string/fab_transformation_scrim_behavior"
+        android:contentDescription="@string/login_find_button_description"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/Find"
         android:textSize="24sp"
         app:icon="?android:attr/actionModeWebSearchDrawable"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnOpenCalculator"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/calc_open_button"
+        app:layout_constraintEnd_toEndOf="@+id/loginFind"
+        app:layout_constraintStart_toStartOf="@+id/loginFind"
+        app:layout_constraintTop_toBottomOf="@+id/loginFind" />
 
     <TextView
         android:id="@+id/designed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/designed_by"
-        android:textColor="#4D575757"
-        android:textSize="11sp"
+        android:textColor="@color/text_designed_by"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

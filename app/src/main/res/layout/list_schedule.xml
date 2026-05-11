@@ -1,81 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="4dp"
-    android:layout_marginLeft="4dp"
+    android:layout_marginStart="8dp"
     android:layout_marginTop="4dp"
-    android:layout_marginEnd="4dp">
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/lineNumber"
-            android:layout_width="18dp"
+            android:layout_width="wrap_content"
+            android:minWidth="24dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="10sp"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:layout_marginEnd="8dp"
             tools:text="99"/>
 
         <TextView
             android:id="@+id/scheduleDate"
-            android:layout_width="54dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:textSize="10sp"
+            android:layout_weight="1.2"
+            android:gravity="start"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginEnd="8dp"
             tools:text="31.12.2022"/>
 
         <TextView
             android:id="@+id/remainder"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="10sp"
-            tools:text="9 999 999 999.99"/>
+            android:layout_weight="1.5"
+            android:gravity="end"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginEnd="8dp"
+            tools:text="9999.99"/>
 
         <TextView
             android:id="@+id/days"
-            android:layout_width="24dp"
+            android:layout_width="wrap_content"
+            android:minWidth="30dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:gravity="center"
-            android:textSize="10sp"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:layout_marginEnd="8dp"
             tools:text="31"/>
 
         <TextView
             android:id="@+id/mainDebt"
-            android:layout_width="68dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="10sp"
-            tools:text="999 999 999.99"/>
+            android:layout_weight="1.5"
+            android:gravity="end"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginEnd="8dp"
+            tools:text="8888.88"/>
 
         <TextView
             android:id="@+id/marginSchedule"
-            android:layout_width="68dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="10sp"
-            tools:text="999 999 999.99"/>
+            android:layout_weight="1.5"
+            android:gravity="end"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:layout_marginEnd="8dp"
+            tools:text="7777.77"/>
 
         <TextView
             android:id="@+id/total"
-            android:layout_width="68dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="10sp"
+            android:layout_weight="1.8"
+            android:gravity="end"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
             android:textStyle="bold"
-            tools:text="9 999 999 999.99"/>
+            tools:text="12345.67"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

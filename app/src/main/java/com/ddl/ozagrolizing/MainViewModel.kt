@@ -2,21 +2,30 @@ package com.ddl.ozagrolizing
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class MainViewModel(val db: DataBase) : ViewModel() {
+class MainViewModel(private val db: DataBase) : ViewModel() {
 
-    var resultLive = MutableLiveData<List<DataContract>>()
-    var resultLiveSch = MutableLiveData<List<Schedule>>()
-    suspend fun getDataContract(inn: String) {
-        if(db.getDao().getDataContract(inn).isNotEmpty()) {
-           resultLive.value = db.getDao().getDataContract(inn)
+    val resultLive = MutableLiveData<List<DataContract>>()
+    val resultLiveSch = MutableLiveData<List<Schedule>>()
+
+    fun loadContracts(inn: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val data = db.getDao().getDataContract(inn)
+            if (data.isNotEmpty()) {
+                resultLive.postValue(data)
+            }
         }
     }
 
-    suspend fun getSchedule(id: String) {
-        if(db.getDao().getSchedule(id).isNotEmpty()) {
-            resultLiveSch.value = db.getDao().getSchedule(id)
+    fun loadSchedule(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val data = db.getDao().getSchedule(id)
+            if (data.isNotEmpty()) {
+                resultLiveSch.postValue(data)
+            }
         }
     }
-
 }

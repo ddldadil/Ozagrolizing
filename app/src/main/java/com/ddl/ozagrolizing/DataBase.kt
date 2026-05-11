@@ -9,12 +9,19 @@ import androidx.room.RoomDatabase
 abstract class DataBase : RoomDatabase() {
     abstract fun getDao(): Dao
     companion object {
+        @Volatile
+        private var INSTANCE: DataBase? = null
+
         fun getDataBase(context: Context): DataBase {
-            return Room.databaseBuilder(
-                context.applicationContext,
-                DataBase::class.java,
-                "OzagrolizingQRF.db").createFromAsset("database/OzagrolizingQRF.db")
-                .build()
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: Room.databaseBuilder(
+                    context.applicationContext,
+                    DataBase::class.java,
+                    "OzagrolizingQRF.db"
+                ).createFromAsset("database/OzagrolizingQRF.db")
+                    .build()
+                    .also { INSTANCE = it }
+            }
         }
     }
 }

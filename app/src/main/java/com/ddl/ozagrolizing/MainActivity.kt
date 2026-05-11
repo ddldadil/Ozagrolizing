@@ -1,51 +1,54 @@
 package com.ddl.ozagrolizing
 
-import android.app.DownloadManager
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ddl.ozagrolizing.databinding.ActivityMainBinding
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), ContractAdapter.Listener {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var vm: MainViewModel
-    private lateinit var adapter: ContractAdapter
+    private val adapter = ContractAdapter(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        vm = ViewModelProvider(this, MainViewModelFactory(this))
-            .get(MainViewModel::class.java)
-        vm.resultLive.observe(this) { text ->
-            binding.message.visibility = TextView.GONE
-            binding.imNoData.visibility = ImageView.GONE
-            binding.Name.text = text[0].name
-            binding.Region.text = text[0].region
-            binding.District.text = text[0].district
-            binding.rcView.layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ContractAdapter(this)
-            binding.rcView.adapter = adapter
-            adapter.submitList(text)
+        binding.rcView.setHasFixedSize(true)
+        binding.rcView.layoutManager = LinearLayoutManager(this)
+        binding.rcView.adapter = adapter
+
+        vm = ViewModelProvider(this, MainViewModelFactory(this))[MainViewModel::class.java]
+
+        vm.resultLive.observe(this) { contracts ->
+            if (contracts.isNullOrEmpty()) return@observe
+            binding.message.visibility = View.GONE
+            binding.imNoData.visibility = View.GONE
+            val first = contracts[0]
+            binding.Name.text = first.name
+            binding.Region.text = first.region
+            binding.District.text = first.district
+            adapter.submitList(contracts)
         }
 
-        val loginInn = intent.getStringExtra("inn")
-        lifecycleScope.launch{
-            vm.getDataContract(loginInn.toString())
+        val loginInn = intent.getStringExtra(EXTRA_INN).orEmpty()
+        if (loginInn.isNotEmpty()) {
+            vm.loadContracts(loginInn)
         }
     }
 
-    override fun onClick(dContract: DataContract) {  //Нажатие на договор
-        val sch = Intent(this, ScheduleActivity::class.java)
-        val item = dContract.id.toString()
-        sch.putExtra("item", item)
+    override fun onClick(dContract: DataContract) {
+        val sch = Intent(this, ScheduleActivity::class.java).apply {
+            putExtra(ScheduleActivity.EXTRA_CONTRACT_ID, dContract.id.toString())
+        }
         startActivity(sch)
+    }
+
+    companion object {
+        const val EXTRA_INN = "inn"
     }
 }
