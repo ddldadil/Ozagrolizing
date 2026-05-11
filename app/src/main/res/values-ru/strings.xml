@@ -13,4 +13,43 @@
     <string name="HeaderMargin">Маржа</string>
     <string name="HeaderTotal">Всего</string>
 
+    <string name="error_inn_too_short">ИНН должен состоять как минимум из 9 символов</string>
+    <string name="contract_display_number">№ %1$s</string>
+    <string name="contract_display_date">от %1$s</string>
+    <string name="contract_display_price">Цена: %1$s</string>
+    <string name="contract_display_margin">Маржа: %1$s</string>
+    <string name="contract_display_term">Срок в (мес): %1$s</string>
+    <string name="contract_display_prepayment">Аванс: %1$s</string>
+    <string name="contract_display_total_cost">Общая лизинговая стоимость: %1$s</string>
+    <string name="contract_value_not_available">н/д</string>
+    <string name="login_logo_description">Логотип Ozagrolizing</string>
+    <string name="login_find_button_description">Найти по ИНН</string>
+
+    <string name="calc_title">Лизинговый калькулятор</string>
+    <string name="calc_open_button">Калькулятор лизинга</string>
+    <string name="calc_hint_start_date">Дата начала графика</string>
+    <string name="calc_hint_amount">Сумма техники</string>
+    <string name="calc_suffix_sum">сум</string>
+    <string name="calc_label_prepayment">Аванс: %1$s%%</string>
+    <string name="calc_label_rate">Ставка: %1$s%%</string>
+    <string name="calc_label_subsidy">Субсидия: %1$s%%</string>
+    <string name="calc_label_term">Срок: %1$s</string>
+    <string name="calc_label_grace">Льготный период: %1$s</string>
+    <string name="calc_btn_calculate">Рассчитать график</string>
+    <string name="calc_btn_export">Экспорт в Excel (CSV)</string>
+    <string name="calc_col_number">№</string>
+    <string name="calc_col_date">Дата</string>
+    <string name="calc_col_days">Дней</string>
+    <string name="calc_col_principal">Осн.долг</string>
+    <string name="calc_col_interest">%</string>
+    <string name="calc_col_subsidy">Субсидия</string>
+    <string name="calc_col_payment">Платёж</string>
+    <string name="calc_summary">Сумма аванса: %1$s\nИтого процентов: %2$s\nИтого субсидий: %3$s\nОбщая сумма: %4$s</string>
+    <string name="calc_error_amount_invalid">Введите корректную сумму</string>
+    <string name="calc_error_amount_too_big">Сумма не должна превышать 8 000 000 000</string>
+    <string name="calc_error_subsidy_too_high">Субсидия не может быть выше ставки</string>
+    <string name="calc_error_calculation">Ошибка расчёта</string>
+    <string name="calc_export_success">Файл сохранён</string>
+    <string name="calc_export_error">Не удалось сохранить файл</string>
+    <string name="calc_select_date_description">Выбрать дату начала</string>
 </resources>
